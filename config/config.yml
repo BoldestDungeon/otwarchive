@@ -355,6 +355,7 @@ BANNED_MULTIMEDIA_SRCS: []
 # It is slightly less secure so do NOT put any property in here if you aren't
 # sure all variations on it are okay!
 SUPPORTED_CSS_SHORTHAND_PROPERTIES:
+- --
 - background
 - border
 - column
