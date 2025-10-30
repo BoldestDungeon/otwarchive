@@ -131,6 +131,10 @@
       <code>cm, em, ex, in, mm, pc, pt, px</code>
     </p>
     <p>
+      You can use the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc">calc()</a> function to calculate values. The calc() function can be combined with CSS variables to help make complicated designs. Example:<br/>
+      <code>width: calc(100% - 2em)</code>
+    </p>
+    <p>
       PS: we highly encourage learning about and using <code>em</code>, which lets you set things relative to the viewer's current font size!
       It will make your layouts much more flexible and responsive to different browser/font settings.
     </p>
@@ -151,6 +155,44 @@
     <p>
       You can specify scale (for the <code>transform</code> property) as <code>scale(numeric value)</code> where the numeric value can be
       specified up to two decimal places.
+    </p>
+  </dd>
+
+  <dt>CSS Variables</dt>
+  <dd>
+    <p>
+      You can use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS variables</a> (also referred to as CSS custom properties) to allow you to re-use values throughout your design.
+      CSS variables are defined as properties that begin with two dashes and can be accessed using the var() function.
+      Example:<br/>
+      <code>
+        #workskin {
+          --my-primary-color: #23095a;
+          --my-secondary-color: #f30996;
+        }
+
+        #workskin p {
+          color: var(--my-primary-color);
+        }
+
+        #workskin strong {
+          color: var(--my-secondary-color);
+          background: var(--my-primary-color);
+        }
+      </code>
+    </p>
+    <p>
+      CSS variables can also be used for calculations within the calc() function:<br/>
+      <code>
+        #workskin {
+          --columns: 3;
+        }
+        @media screen and (max-width: 900px) {
+          #workskin: --columns: 1;
+        }
+        .column-content {
+          width: calc(100% / var(--columns));
+        }
+      </code>
     </p>
   </dd>
 
